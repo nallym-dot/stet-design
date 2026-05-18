@@ -16,6 +16,7 @@
   ============================================================
 -->
 <!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+<link rel="stylesheet" href="https://use.typekit.net/plm5beq.css">
 
 <style>
   :root {
@@ -385,10 +386,22 @@
     font-size: clamp(22px, 2.2vw, 32px);
     line-height: 1.32;
     color: var(--ink);
-    margin: 0 0 64px;
+    margin: 0 0 22px;
     max-width: 800px;
     letter-spacing: -0.015em;
     text-wrap: balance;
+  }
+  .about p.lede.sub {
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.5;
+    color: var(--muted);
+    margin-bottom: 22px;
+    letter-spacing: -0.005em;
+  }
+  .about p.lede.coda {
+    font-size: clamp(17px, 1.4vw, 20px);
+    color: var(--ink);
+    margin-bottom: 56px;
   }
   .about p.lede em {
     font-family: var(--serif-italic);
@@ -622,7 +635,17 @@
     .hero { padding: 16px 16px 40px; }
     .hero-inner { padding: 20px 24px 0; border-radius: 14px; }
     .hero-copy { padding: 48px 0 36px; }
-    .nav-links { display: none; }
+    nav.top { flex-wrap: wrap; row-gap: 14px; }
+    .nav-links {
+      order: 3;
+      flex-basis: 100%;
+      gap: 22px;
+      font-size: 13px;
+      padding-top: 4px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 0 4px;
+      justify-content: flex-start;
+    }
     .video-wrap { padding: 0 16px 56px; }
     .video-card { aspect-ratio: 4 / 3; }
     .float-card.score { top: 16px; right: 16px; width: 200px; padding: 12px 14px; }
@@ -673,7 +696,7 @@
         Protect the work<br>before the work begins<span class="red-mark">.</span>
       </h1>
       <p class="hero-sub">
-        stet. gives solo creatives the operational discipline of a studio. It scores incoming briefs, surfaces what is missing, and drafts the clarifying email you have been meaning to send.
+        stet. gives solo creatives the operational discipline of a studio. It reads incoming briefs, scores them for completeness, names what is missing, and drafts the clarifying email you have been meaning to send. When a client later pushes beyond the agreed scope, it drafts that conversation too.
       </p>
 
       <a href="https://studio-app-production-b18c.up.railway.app/" target="_blank" rel="noopener" class="btn btn-red signup-cta">
@@ -702,29 +725,33 @@
     <div class="section-label">About stet<span style="color:var(--red); margin-left:1px;">.</span></div>
     <div>
       <p class="lede">
-        Creative projects rarely fail because the work was wrong. They fail because the brief was thin, the scope was soft, and the clarifying email never got sent. <em>stet. is built for that moment.</em>
+        Creative projects rarely fail because the work was wrong. They fail because the brief was thin, the scope was soft, and the clarifying email never got sent.
       </p>
+      <p class="lede sub">
+        stet. gives independent creatives access to the protective behaviours of an account manager. Reading briefs properly, asking the right questions, and responding when clients push beyond what was agreed. Without hiring one. Without being one.
+      </p>
+      <p class="lede coda"><em>stet. is built for that moment.</em></p>
 
       <div class="principles">
         <div class="principle">
           <div class="num">01 / Agents</div>
           <h3 class="name">Interrogator</h3>
-          <p class="desc">Scores the brief out of 100. Names missing fields. Makes ambiguity visible.</p>
+          <p class="desc">Scores the brief out of 100. Names missing fields. Makes ambiguity visible. Questions are inferred from this brief, not pulled from a template.</p>
         </div>
         <div class="principle">
           <div class="num">02 / Agents</div>
           <h3 class="name">Clarifier</h3>
-          <p class="desc">Drafts the clarifying email. Direct questions, in a tone you can actually send.</p>
+          <p class="desc">Drafts the clarifying email. Direct questions, in a tone you can actually send. Opens with acknowledgement, closes with a next step.</p>
         </div>
         <div class="principle">
           <div class="num">03 / Agents</div>
           <h3 class="name">Referee</h3>
-          <p class="desc">At 80% completeness, generates the full internal briefing document.</p>
+          <p class="desc">At 80% completeness, generates the full internal briefing document. Deliverables, timeline, budget, risks, check-in schedule. The account manager handover, automated.</p>
         </div>
         <div class="principle">
           <div class="num">04 / Agents</div>
           <h3 class="name">Gatekeeper</h3>
-          <p class="desc">Monitors inbound after kickoff. Drafts scope-protection responses. Logs the decision.</p>
+          <p class="desc">Monitors inbound after kickoff. Flags scope creep. Drafts the boundary-setting email. Logs the decision permanently against the job.</p>
         </div>
       </div>
     </div>
@@ -739,7 +766,7 @@
       <h2>AI drafts.<br>The human decides<span class="red-mark">.</span></h2>
       <div class="body">
         <p>stet. never sends a client email without approval. Tone, timing, relationship history, and commercial context all matter. That decision only you can make.</p>
-        <p><em>The system protects the conditions. You stay in the room.</em></p>
+        <p><em>The system handles the blank page. You handle the judgment.</em></p>
       </div>
     </div>
 
