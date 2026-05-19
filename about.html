@@ -1,9 +1,8 @@
-<!DOCTYPE html><html lang="en"><head>
-
-
+<!DOCTYPE html>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>stet. — Brief integrity for independent creatives</title>
+<title>Closing the Gap Between Marketing Intent and Creative Execution — stet.design</title>
 
 <!--
   ============================================================
@@ -15,25 +14,26 @@
   is the fallback until the Typekit link is in place.
   ============================================================
 -->
-<!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
 <link rel="stylesheet" href="https://use.typekit.net/plm5beq.css">
+
+
 
 <style>
   :root {
     --ink:        #333740;
     --ink-soft:   #3d414b;
-    --ink-raised: #3a3e48;
     --paper:      #ffffff;
     --paper-warm: #f6f5f2;
     --paper-line: #e8e6e1;
     --muted:      #6b6f78;
     --muted-2:    #9ea2aa;
     --on-ink:     #f1efeb;
-    --on-ink-mut: #a8abb3;
-    --on-ink-fnt: #6e7178;
+    --on-ink-mut: #b6b9c1;
+    --on-ink-fnt: #7d8089;
     --red:        #c90505;
+    --rule:       #e8e6e1;
     --rule-dark:  #444853;
-    --rule-light: #ececea;
+    --measure:    600px;
 
     --serif: "arno-pro-caption", "arno-pro", Georgia, "Times New Roman", serif;
     --serif-italic: "arno-pro", Georgia, "Times New Roman", serif;
@@ -48,570 +48,683 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 17px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "kern" 1, "liga" 1;
   }
   ::selection { background: var(--red); color: #fff; }
+  a { color: inherit; }
 
-  a { color: inherit; text-decoration: none; }
-
-  /* ============== HERO (dark) ============== */
-  .hero {
-    background: var(--ink);
-    color: var(--on-ink);
-    padding: 28px 32px 56px;
-    border-radius: 0;
-  }
-  .hero-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    background: var(--ink);
-    border-radius: 18px;
-    padding: 28px 40px 0;
-    position: relative;
+  /* scroll progress hairline */
+  .progress {
+    position: fixed; top: 0; left: 0;
+    height: 2px; width: 0%;
+    background: var(--red);
+    z-index: 100;
   }
 
-  /* nav */
-  nav.top {
+  /* ============== TOP BAR ============== */
+  .topbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 12px 0 0;
-  }
-  .brand {
-    display: inline-flex; align-items: center; gap: 0;
-    height: 28px;
-  }
-  .brand img { height: 28px; width: auto; display: block; }
-  .nav-links {
-    display: flex; gap: 36px;
-    font-size: 14px;
-    color: var(--on-ink);
-    letter-spacing: -0.005em;
-  }
-  .nav-links a { opacity: 0.85; transition: opacity .15s; }
-  .nav-links a:hover { opacity: 1; }
-  .nav-links a.active { opacity: 1; }
-  .nav-links a.active::after {
-    content: "";
-    display: block;
-    width: 4px; height: 4px;
-    background: var(--red);
-    border-radius: 50%;
-    margin: 4px auto 0;
-  }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 11px 20px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.005em;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all .18s ease;
-    text-decoration: none;
-    font-family: var(--sans);
-  }
-  .btn-light { background: var(--paper); color: var(--ink); }
-  .btn-light:hover { background: var(--paper-warm); }
-  .btn-light .red-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; display: inline-block; }
-  .btn-ghost-dark {
-    background: transparent; color: var(--on-ink);
-    border-color: rgba(241,239,235,0.18);
-  }
-  .btn-ghost-dark:hover { border-color: rgba(241,239,235,0.4); }
-  .btn-red { background: var(--red); color: #fff; }
-  .btn-red:hover { background: #b00404; }
-
-  /* hero copy */
-  .hero-copy {
-    padding: 80px 0 56px;
-    max-width: 920px;
-  }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--on-ink-mut);
-    display: inline-flex; align-items: center; gap: 10px;
-    margin-bottom: 28px;
-  }
-  .eyebrow .red-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
-  h1.hero-title {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(48px, 5.6vw, 84px);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
-    margin: 0 0 28px;
-    text-wrap: balance;
-    color: var(--on-ink);
-  }
-  h1.hero-title .red-mark { color: var(--red); }
-  .hero-sub {
-    font-size: clamp(16px, 1.15vw, 18px);
-    line-height: 1.55;
-    color: var(--on-ink-mut);
-    max-width: 560px;
-    margin: 0 0 40px;
-  }
-
-  /* email signup inline */
-  .signup {
-    display: inline-flex;
     align-items: center;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 999px;
-    padding: 5px 5px 5px 22px;
-    gap: 12px;
-    max-width: 460px;
-    width: 100%;
-  }
-  .signup input {
-    border: none;
-    background: transparent;
-    color: var(--on-ink);
-    font-family: var(--sans);
-    font-size: 14px;
-    outline: none;
-    flex: 1;
-    min-width: 0;
-    padding: 8px 0;
-    letter-spacing: -0.005em;
-  }
-  .signup input::placeholder { color: var(--on-ink-fnt); }
-  .signup .btn { padding: 10px 18px; }
-  .signup-cta {
-    padding: 14px 26px;
-    font-size: 15px;
-    letter-spacing: -0.005em;
-  }
-  .signup-cta span { transition: transform .2s ease; display: inline-block; margin-left: 4px; }
-  .signup-cta:hover span { transform: translateX(3px); }
-  .signup-note {
-    margin-top: 16px;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--on-ink-fnt);
-    text-transform: uppercase;
-  }
-
-  /* ============== VIDEO CARD ============== */
-  .video-wrap {
-    max-width: 1240px;
-    margin: -8px auto 0;
-    padding: 0 32px 80px;
-    position: relative;
-  }
-  .video-card {
-    position: relative;
-    border-radius: 22px;
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-    background:
-      radial-gradient(120% 80% at 50% 40%, #2c2f37 0%, #25282f 50%, #1f2229 100%);
-    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.04);
-  }
-  /* film-strip subtle texture */
-  .video-card::before {
-    content: "";
-    position: absolute; inset: 0;
-    background:
-      repeating-linear-gradient(0deg,
-        rgba(255,255,255,0.012) 0,
-        rgba(255,255,255,0.012) 1px,
-        transparent 1px,
-        transparent 3px);
-    pointer-events: none;
-  }
-  .video-inner {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 18px;
-  }
-  .play-btn {
-    width: 84px; height: 84px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.18);
-    display: grid; place-items: center;
-    transition: all .25s ease;
-    cursor: pointer;
-  }
-  .play-btn:hover { background: var(--red); border-color: var(--red); }
-  .play-btn svg { width: 28px; height: 28px; fill: var(--on-ink); margin-left: 4px; }
-  .play-btn:hover svg { fill: #fff; }
-  .video-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--on-ink-fnt);
-  }
-
-  /* floating UI panels on video card */
-  .float-card {
-    position: absolute;
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--rule);
     background: var(--paper);
-    color: var(--ink);
-    border-radius: 14px;
-    padding: 16px 18px;
-    box-shadow: 0 20px 50px -10px rgba(0,0,0,0.45);
-    font-family: var(--sans);
-    font-size: 12px;
-    line-height: 1.45;
-    z-index: 2;
+    position: sticky; top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(180%) blur(6px);
   }
-  .float-card .row {
-    display: flex; align-items: center; gap: 10px;
-  }
-  .float-card .ico {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: #fff;
-    display: grid; place-items: center;
-    font-size: 11px;
-    flex-shrink: 0;
-  }
-  .float-card .ico.red { background: var(--red); }
-  .float-card .ttl {
-    font-weight: 500;
-    color: var(--ink);
-    font-size: 12.5px;
-    letter-spacing: -0.005em;
-  }
-  .float-card .ttl-sub {
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 2px;
-  }
-
-  /* card A — top right, score */
-  .float-card.score {
-    top: 32px; right: 32px;
-    width: 240px;
-  }
-  .score-bar {
-    margin-top: 14px;
-    height: 6px;
-    background: var(--paper-line);
-    border-radius: 999px;
-    overflow: hidden;
-    position: relative;
-  }
-  .score-bar .fill {
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 72%;
-    background: var(--ink);
-    border-radius: 999px;
-  }
-  .score-row {
-    margin-top: 10px;
-    display: flex; justify-content: space-between;
+  .topbar .brand { display: inline-flex; align-items: center; height: 24px; }
+  .topbar .brand img { height: 24px; }
+  .topbar .meta {
     font-family: var(--mono);
     font-size: 10px;
-    letter-spacing: 0.08em;
-    color: var(--muted);
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-  }
-  .score-row .num { color: var(--ink); font-size: 11px; }
-
-  /* card B — bottom left, missing fields */
-  .float-card.gaps {
-    bottom: 28px; left: 28px;
-    width: 280px;
-    padding: 18px 20px 16px;
-  }
-  .gaps h4 {
-    margin: 0 0 12px;
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: -0.005em;
-  }
-  .gaps ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .gaps li {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 11.5px; color: var(--muted);
-  }
-  .gaps li::before {
-    content: "";
-    width: 6px; height: 6px;
-    background: var(--red);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .gaps li.done { color: var(--muted-2); text-decoration: line-through; }
-  .gaps li.done::before { background: var(--paper-line); }
-
-  /* ============== ABOUT SECTION (white) ============== */
-  section.about {
-    padding: 120px 32px;
-    background: var(--paper);
-  }
-  .about-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 64px;
-    align-items: flex-start;
-  }
-  .section-label {
-    font-size: 13px;
-    color: var(--ink);
-    display: flex; align-items: center; gap: 10px;
-    padding-top: 14px;
-    letter-spacing: -0.005em;
-  }
-  .section-label::before {
-    content: "";
-    width: 6px; height: 6px;
-    background: var(--ink);
-    border-radius: 50%;
-  }
-  .section-label.red::before { background: var(--red); }
-
-  .about p.lede {
-    font-family: var(--sans);
-    font-size: clamp(22px, 2.2vw, 32px);
-    line-height: 1.32;
-    color: var(--ink);
-    margin: 0 0 22px;
-    max-width: 800px;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
-  }
-  .about p.lede.sub {
-    font-size: clamp(17px, 1.4vw, 20px);
-    line-height: 1.5;
     color: var(--muted);
-    margin-bottom: 22px;
-    letter-spacing: -0.005em;
   }
-  .about p.lede.coda {
-    font-size: clamp(17px, 1.4vw, 20px);
-    color: var(--ink);
-    margin-bottom: 56px;
-  }
-  .about p.lede em {
-    font-family: var(--serif-italic);
-    font-style: italic;
-    color: var(--ink);
-  }
-
-  .principles {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    padding-top: 40px;
-    border-top: 1px solid var(--rule-light);
-  }
-  .principle .num {
+  .topbar .meta .sep { color: var(--red); margin: 0 8px; }
+  .topbar .back {
     font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--muted);
-    margin-bottom: 14px;
-  }
-  .principle .name {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    color: var(--ink);
-    margin: 0 0 12px;
-  }
-  .principle .desc {
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--muted);
-  }
-
-  /* ============== EXCELLENCE / PRINCIPLE SECTION ============== */
-  section.principle-row {
-    padding: 120px 32px;
-    background: var(--paper-warm);
-    border-top: 1px solid var(--rule-light);
-  }
-  .principle-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.05fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .principle-inner h2 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(38px, 4.2vw, 60px);
-    line-height: 1.04;
-    letter-spacing: -0.025em;
-    margin: 24px 0 28px;
-    color: var(--ink);
-    text-wrap: balance;
-  }
-  .principle-inner h2 .red-mark { color: var(--red); }
-  .principle-inner .body {
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.65;
-    max-width: 520px;
-  }
-  .principle-inner .body p { margin: 0 0 1em; }
-  .principle-inner .body p:last-child { margin-bottom: 0; }
-  .principle-inner .body em {
-    font-family: var(--serif-italic);
-    font-style: italic;
-    color: var(--ink);
-  }
-
-  /* product preview card on right */
-  .preview-card {
-    background: var(--paper);
-    border-radius: 18px;
-    padding: 28px;
-    box-shadow: 0 20px 60px -20px rgba(51,55,64,0.18);
-    border: 1px solid var(--rule-light);
-  }
-  .preview-head {
-    display: flex; align-items: center; justify-content: space-between;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--rule-light);
-    margin-bottom: 18px;
-  }
-  .preview-head .left {
-    display: flex; align-items: center; gap: 12px;
-  }
-  .preview-head .left .avatar {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--ink);
-    color: #fff;
-    display: grid; place-items: center;
-    font-size: 11px;
-  }
-  .preview-head .meta {
-    font-size: 13px;
-    line-height: 1.3;
-  }
-  .preview-head .meta .sub { color: var(--muted); font-size: 11.5px; }
-  .preview-head .tag {
-    font-family: var(--mono);
-    font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    background: rgba(201,5,5,0.08);
-    color: var(--red);
-    padding: 5px 9px;
-    border-radius: 999px;
-  }
-
-  .email-draft {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--ink);
-  }
-  .email-draft .greeting { margin-bottom: 10px; }
-  .email-draft .q {
-    display: flex; gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--rule-light);
     color: var(--muted);
+    text-decoration: none;
+    transition: color .15s;
   }
-  .email-draft .q:last-of-type { border-bottom: none; }
-  .email-draft .q .qnum {
-    color: var(--red);
+  .topbar .back:hover { color: var(--ink); }
+  .topbar .back .arrow { color: var(--red); margin-right: 6px; }
+
+  /* ============== HERO ============== */
+  .hero {
+    padding: 140px 48px 100px;
+    max-width: 1280px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero .eyebrow {
     font-family: var(--mono);
     font-size: 11px;
-    width: 26px; flex-shrink: 0;
-    letter-spacing: 0.06em;
-  }
-  .email-draft .sign-off {
-    margin-top: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--muted);
-    font-style: italic;
-    font-family: var(--serif-italic);
+    margin-bottom: 56px;
+    display: flex; align-items: center; gap: 12px;
   }
-  .preview-actions {
-    margin-top: 22px;
-    display: flex; gap: 10px;
-    align-items: center;
+  .hero .eyebrow .red-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
   }
-  .preview-actions .btn { padding: 9px 16px; font-size: 13px; }
-  .preview-actions .ghost {
-    background: transparent;
-    color: var(--muted);
-    border: 1px solid var(--rule-light);
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(48px, 6.4vw, 104px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 72px;
+    max-width: 16ch;
+    text-wrap: balance;
+    color: var(--ink);
   }
-  .preview-actions .ghost:hover { color: var(--ink); border-color: var(--ink); }
-  .preview-actions .meta {
-    margin-left: auto;
+  .hero h1 .red-mark { color: var(--red); }
+  .hero .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    max-width: 920px;
+  }
+  .hero .meta-grid dt {
     font-family: var(--mono);
     font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
+  .hero .meta-grid dd {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .hero .meta-grid dd a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+  }
+  .hero .meta-grid dd a:hover { border-color: var(--red); }
 
-  /* ============== THESIS / MANIFESTO SECTION ============== */
-  section.thesis-link {
-    background: var(--ink);
-    color: var(--on-ink);
-    padding: 140px 32px;
-  }
-  .thesis-link-inner {
-    max-width: 1240px;
+  /* ============== ABSTRACT ============== */
+  .abstract {
+    padding: 80px 48px 120px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
+    grid-template-columns: 160px 1fr;
+    gap: 48px;
   }
-  .thesis-link h2 {
+  .abstract .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .abstract .label::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+  .abstract p,
+  .abstract .abstract-body > p {
     font-family: var(--serif-italic);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(36px, 4.4vw, 60px);
-    line-height: 1.18;
+    font-size: clamp(20px, 1.9vw, 26px);
+    line-height: 1.45;
+    max-width: 760px;
+    margin: 0 0 1em;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .abstract .abstract-body > p:last-child { margin-bottom: 0; }
+  .abstract .abstract-body > p:first-child {
+    font-family: var(--serif);
+    font-style: normal;
+    font-weight: 600;
+    font-size: clamp(24px, 2.4vw, 34px);
+    line-height: 1.2;
+    margin-bottom: 1.1em;
     letter-spacing: -0.015em;
+  }
+
+  /* ============== SECTION SCAFFOLDING ============== */
+  section.chapter {
+    position: relative;
+    padding: 120px 48px;
+    border-top: 1px solid var(--rule);
+  }
+  section.chapter.warm {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+  }
+  section.chapter .inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .ghost-num {
+    position: absolute;
+    top: -50px;
+    left: -16px;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(180px, 22vw, 340px);
+    line-height: 0.85;
+    color: var(--ink);
+    opacity: 0.045;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  section.chapter.warm .ghost-num { opacity: 0.06; }
+  .chapter-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .chapter-eyebrow .num { color: var(--muted); margin-right: 14px; }
+  h2.chapter-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin: 0 0 56px;
+    max-width: 18ch;
+    position: relative;
+    z-index: 1;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  h2.chapter-title .red-mark { color: var(--red); }
+  .body-col {
+    max-width: var(--measure);
+    position: relative;
+    z-index: 1;
+  }
+  .body-col p {
+    margin: 0 0 1.35em;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .body-col p:last-child { margin-bottom: 0; }
+  .body-col strong { font-weight: 500; color: var(--ink); }
+  .body-col em { font-family: var(--serif-italic); font-style: italic; font-size: 1.02em; }
+  .body-col a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--red);
+    text-decoration: none;
+    padding-bottom: 1px;
+  }
+  .body-col code, .body-col .mono-inline {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    background: var(--paper-warm);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+  section.chapter.warm .body-col code { background: var(--paper); }
+
+  /* ============== SECTIONS-LIST (stacked detail blocks for §04) ============== */
+  .sections-list {
+    margin: 32px 0 16px;
+    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .sections-list .sec-row {
+    padding: 28px 32px 32px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sections-list .sec-row h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    line-height: 1.1;
     margin: 0;
+    position: relative;
+    padding-left: 18px;
+  }
+  .sections-list .sec-row h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+  }
+  .sections-list .sec-row p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .sections-list .sec-row p em {
+    font-family: var(--serif-italic);
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ============== AGENT ENTRIES (vertical stack) ============== */
+  .agent-list {
+    margin: 32px 0 16px;
+    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--rule);
+  }
+  .agent-entry {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .agent-entry .meta-col .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-bottom: 10px;
+  }
+  .agent-entry .meta-col h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .agent-entry .body-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 62ch;
+  }
+  .agent-entry .body-text p { margin: 0 0 1em; }
+  .agent-entry .body-text p:last-child { margin-bottom: 0; }
+  .agent-entry .body-text em {
+    font-family: var(--serif-italic);
+    font-style: italic;
+  }
+
+  /* ============== PULL QUOTE ============== */
+  .pullquote {
+    margin: 56px 0;
+    padding: 8px 0 8px 32px;
+    border-left: 3px solid var(--red);
+    font-family: var(--serif-italic);
+    font-style: italic;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 820px;
+    text-wrap: balance;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============== MANIFESTO (centerfold dark) ============== */
+  section.manifesto {
+    background: var(--ink);
+    color: var(--on-ink);
+    padding: 220px 48px;
+    text-align: center;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  section.manifesto .inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+  }
+  section.manifesto .ghost-num {
+    color: #fff;
+    opacity: 0.035;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  section.manifesto .chapter-eyebrow {
+    margin-bottom: 64px;
+    color: var(--red);
+  }
+  section.manifesto .chapter-eyebrow .num { color: var(--on-ink-fnt); }
+  .manifesto-quote {
+    font-family: var(--serif-italic);
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+    max-width: 20ch;
+    margin: 0 auto;
+    font-size: clamp(40px, 5.2vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
     color: var(--on-ink);
     text-wrap: balance;
   }
-  .thesis-link h2 .red-mark { color: var(--red); font-style: normal; font-family: var(--serif); }
-  .thesis-link .right {
-    display: flex; flex-direction: column; gap: 24px;
-    align-items: flex-start;
-    padding-bottom: 8px;
+  .manifesto-quote .red-mark {
+    color: var(--red);
+    font-style: normal;
+    font-family: var(--serif);
   }
-  .thesis-link .right p {
+  .manifesto-coda {
+    max-width: 720px;
+    margin: 72px auto 0;
+    text-align: left;
+    font-size: 17px;
+    line-height: 1.7;
     color: var(--on-ink-mut);
-    max-width: 380px;
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0;
   }
+  .manifesto-coda p { margin: 0 0 1.2em; }
+  .manifesto-coda p:last-child { margin-bottom: 0; }
+  .manifesto-coda strong { color: var(--on-ink); font-weight: 500; }
+  .manifesto-attr {
+    margin-top: 48px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--on-ink-fnt);
+  }
+
+  /* ============== PLACEHOLDERS ============== */
+  .placeholder {
+    border: 1px dashed var(--red);
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(201,5,5,0.025) 0px,
+        rgba(201,5,5,0.025) 1px,
+        transparent 1px,
+        transparent 12px
+      ),
+      var(--paper-warm);
+    padding: 56px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+  }
+  section.chapter.warm .placeholder {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(201,5,5,0.03) 0px,
+        rgba(201,5,5,0.03) 1px,
+        transparent 1px,
+        transparent 12px
+      ),
+      var(--paper);
+  }
+  .placeholder.image {
+    aspect-ratio: 16 / 9;
+    justify-content: flex-end;
+    padding: 32px;
+  }
+  .placeholder.quote {
+    padding: 40px;
+  }
+  .placeholder .tag {
+    color: var(--red);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .placeholder .desc {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    line-height: 1.55;
+    max-width: 60ch;
+  }
+  .figure {
+    margin: 56px 0;
+    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+  }
+  .figure .frame {
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    box-shadow: 0 30px 60px -30px rgba(51, 55, 64, 0.18);
+  }
+  section.chapter.warm .figure .frame {
+    background: var(--paper);
+  }
+  .figure .frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .figure .caption {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .figure .caption .fig-num { color: var(--red); margin-right: 10px; }
+
+  /* row of figures (side-by-side) */
+  .figure-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 56px 0;
+    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+  }
+  .figure-row .figure {
+    margin: 0;
+    max-width: none;
+  }
+  .figure-row .figure .frame {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+  .figure-row .figure .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* freelancer quote (inline) */
+  .quote-block {
+    margin: 48px 0;
+    max-width: 820px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============== AGENT GRID ============== */
+  .agent-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 56px 0;
+    max-width: 1100px;
+    position: relative; z-index: 1;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .agent-card {
+    background: var(--paper);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 260px;
+    transition: background .2s;
+  }
+  section.chapter.warm .agent-card { background: var(--paper); }
+  .agent-card .name {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .agent-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .agent-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .agent-card .agent-num {
+    margin-top: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--muted-2);
+  }
+
+  /* ============== BRAND SPREAD ============== */
+  section.brand {
+    padding: 140px 48px 100px;
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+  }
+  section.brand .inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 32px;
+  }
+  .brand-header h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 4.8vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .brand-header h2 .red-mark { color: var(--red); }
+  .brand-header .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .brand-mark-display {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0 80px;
+  }
+  .brand-mark-display img {
+    height: 120px;
+    width: auto;
+  }
+  .brand-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+  }
+  .brand-col h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin: 0 0 24px;
+  }
+  .brand-col .body {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+  .brand-col .body em {
+    font-family: var(--serif-italic);
+    font-style: italic;
+  }
+  .brand-col .body p { margin: 0 0 1em; }
+  .brand-col .body p:last-child { margin-bottom: 0; }
 
   /* ============== FOOTER ============== */
   footer.colophon {
-    padding: 40px 32px;
+    padding: 48px 48px;
     background: var(--ink);
-    border-top: 1px solid var(--rule-dark);
     color: var(--on-ink-mut);
   }
   .col-inner {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -626,202 +739,437 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
   }
-  .col-inner .red-sep {
-    color: var(--red);
-  }
+  .col-inner .red-sep { color: var(--red); }
 
   /* ============== RESPONSIVE ============== */
-  @media (max-width: 980px) {
-    .hero { padding: 16px 16px 40px; }
-    .hero-inner { padding: 20px 24px 0; border-radius: 14px; }
-    .hero-copy { padding: 48px 0 36px; }
-    nav.top { flex-wrap: wrap; row-gap: 14px; }
-    .nav-links {
-      order: 3;
-      flex-basis: 100%;
-      gap: 22px;
-      font-size: 13px;
-      padding-top: 4px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 12px 0 4px;
-      justify-content: flex-start;
+  @media (max-width: 900px) {
+    .topbar {
+      padding: 14px 20px;
+      flex-wrap: wrap;
+      gap: 12px 16px;
     }
-    .video-wrap { padding: 0 16px 56px; }
-    .video-card { aspect-ratio: 4 / 3; }
-    .float-card.score { top: 16px; right: 16px; width: 200px; padding: 12px 14px; }
-    .float-card.gaps { bottom: 16px; left: 16px; width: 220px; padding: 14px 16px; }
-    section.about { padding: 80px 24px; }
-    .about-inner { grid-template-columns: 1fr; gap: 28px; }
-    .principles { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    section.principle-row { padding: 80px 24px; }
-    .principle-inner { grid-template-columns: 1fr; gap: 48px; }
-    section.thesis-link { padding: 80px 24px; }
-    .thesis-link-inner { grid-template-columns: 1fr; gap: 32px; }
+    .topbar .brand { order: 1; }
+    .topbar .back { order: 2; margin-left: auto; }
+    .topbar .meta { order: 3; flex-basis: 100%; }
+    .hero { padding: 64px 24px 56px; }
+    .hero .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .abstract { padding: 56px 24px 72px; grid-template-columns: 1fr; gap: 20px; }
+    section.chapter { padding: 72px 24px; }
+    section.manifesto { padding: 120px 24px; }
+    .manifesto-coda { margin-top: 56px; }
+    section.brand { padding: 72px 24px; }
+    .brand-cols { grid-template-columns: 1fr; gap: 36px; }
+    .brand-header { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .agent-grid { grid-template-columns: 1fr; }
+    .agent-entry { grid-template-columns: 1fr; gap: 18px; padding: 32px 0; }
+    .sections-list { grid-template-columns: 1fr; border-left: none; }
+    .sections-list .sec-row { padding: 22px 0 24px; border-right: none; }
+    .ghost-num { font-size: 140px; top: -20px; left: -8px; }
+    .pullquote { margin: 40px 0; padding-left: 22px; }
+    .figure-row { grid-template-columns: 1fr; gap: 32px; }
+    .figure-row .figure .frame { aspect-ratio: auto; }
+    .figure-row .figure .frame img { height: auto; object-fit: contain; }
+    footer.colophon { padding: 36px 24px; }
     .col-inner { flex-direction: column; align-items: flex-start; }
-  }
-  @media (max-width: 560px) {
-    .principles { grid-template-columns: 1fr; }
-    .float-card.score, .float-card.gaps { display: none; }
-    h1.hero-title { font-size: 44px; }
   }
 </style>
 </head>
 
-<body style="">
+<body>
 
-<!-- ===================== HERO ===================== -->
-<header class="hero">
-  <div class="hero-inner">
-    <nav class="top">
-      <a href="/" class="brand" aria-label="stet.">
-        <img src="assets/stet-light.svg" alt="stet.">
-      </a>
-      <div class="nav-links">
-        <a href="#about" class="active">Home</a>
-        <a href="#how">How it works</a>
-        <a href="about.html">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a href="https://studio-app-production-b18c.up.railway.app/" target="_blank" rel="noopener" class="btn btn-light">
-        <span class="red-dot"></span> Sign up to test
-      </a>
-    </nav>
+<div class="progress" id="progress"></div>
 
-    <div class="hero-copy">
-      <div class="eyebrow">
-        <span class="red-dot"></span>
-        <span>Brief integrity for independent creatives</span>
-      </div>
-      <h1 class="hero-title">
-        Protect the work<br>before the work begins<span class="red-mark">.</span>
-      </h1>
-      <p class="hero-sub">
-        stet. gives solo creatives the operational discipline of a studio. It reads incoming briefs, scores them for completeness, names what is missing, and drafts the clarifying email you have been meaning to send. When a client later pushes beyond the agreed scope, it drafts that conversation too.
-      </p>
-
-      <a href="https://studio-app-production-b18c.up.railway.app/" target="_blank" rel="noopener" class="btn btn-red signup-cta">
-        Sign up to test <span aria-hidden="true">→</span>
-      </a>
-      <div class="signup-note">Early access · Live build at The Studio</div>
-    </div>
-  </div>
+<header class="topbar">
+  <a href="index.html" class="brand" aria-label="stet.">
+    <img src="assets/stet-dark.svg" alt="stet.">
+  </a>
+  <a href="index.html" class="back"><span class="arrow">←</span> Back to home</a>
+  <div class="meta"><span>About</span><span class="sep">·</span><span>May 2026</span></div>
 </header>
 
-<!-- ===================== VIDEO CARD ===================== -->
-<section class="video-wrap">
-  <div class="video-card">
-    <div class="video-inner">
-      <button class="play-btn" aria-label="Play video">
-        <svg viewBox="0 0 24 24"><path d="M5 3.5v17l15-8.5z"></path></svg>
-      </button>
-      <div class="video-label">Coming soon</div>
-    </div>
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="eyebrow">
+    <span class="red-dot"></span>
+    <span>Final Project — LABASAD</span>
   </div>
-</section>
-
-<!-- ===================== ABOUT ===================== -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="section-label">About stet<span style="color:var(--red); margin-left:1px;">.</span></div>
+  <h1>Closing the Gap Between Marketing Intent and Creative Execution<span class="red-mark">.</span></h1>
+  <dl class="meta-grid">
     <div>
-      <p class="lede">
-        Creative projects rarely fail because the work was wrong. They fail because the brief was thin, the scope was soft, and the clarifying email never got sent.
-      </p>
-      <p class="lede sub">
-        stet. gives independent creatives access to the protective behaviours of an account manager. Reading briefs properly, asking the right questions, and responding when clients push beyond what was agreed. Without hiring one. Without being one.
-      </p>
-      <p class="lede coda"><em>stet. is built for that moment.</em></p>
-
-      <div class="principles">
-        <div class="principle">
-          <div class="num">01 / Agents</div>
-          <h3 class="name">Interrogator</h3>
-          <p class="desc">Scores the brief out of 100. Names missing fields. Makes ambiguity visible. Questions are inferred from this brief, not pulled from a template.</p>
-        </div>
-        <div class="principle">
-          <div class="num">02 / Agents</div>
-          <h3 class="name">Clarifier</h3>
-          <p class="desc">Drafts the clarifying email. Direct questions, in a tone you can actually send. Opens with acknowledgement, closes with a next step.</p>
-        </div>
-        <div class="principle">
-          <div class="num">03 / Agents</div>
-          <h3 class="name">Referee</h3>
-          <p class="desc">At 80% completeness, generates the full internal briefing document. Deliverables, timeline, budget, risks, check-in schedule. The account manager handover, automated.</p>
-        </div>
-        <div class="principle">
-          <div class="num">04 / Agents</div>
-          <h3 class="name">Gatekeeper</h3>
-          <p class="desc">Monitors inbound after kickoff. Flags scope creep. Drafts the boundary-setting email. Logs the decision permanently against the job.</p>
-        </div>
-      </div>
+      <dt>Candidate</dt>
+      <dd>Mark Nally</dd>
     </div>
-  </div>
-</section>
-
-<!-- ===================== HUMAN IN THE LOOP ===================== -->
-<section class="principle-row" id="how">
-  <div class="principle-inner">
     <div>
-      <div class="section-label red">The principle</div>
-      <h2>AI drafts.<br>The human decides<span class="red-mark">.</span></h2>
-      <div class="body">
-        <p>stet. never sends a client email without approval. Tone, timing, relationship history, and commercial context all matter. That decision only you can make.</p>
-        <p><em>The system handles the blank page. You handle the judgment.</em></p>
-      </div>
+      <dt>Programme</dt>
+      <dd>Master in Generative Artificial Intelligence for Creatives</dd>
+    </div>
+    <div>
+      <dt>Date</dt>
+      <dd>May 2026</dd>
+    </div>
+    <div>
+      <dt>Project</dt>
+      <dd><a href="https://stet.design">stet.design</a></dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ============== ABSTRACT ============== -->
+<section class="abstract">
+  <div class="label">Abstract</div>
+  <div class="abstract-body">
+    <p>AI has made creative execution faster. It has not made creative work easier to manage.</p>
+    <p>Most AI adoption in creative work focuses on production. Write the copy. Make the image. Generate the variation. But the deeper productivity loss happens before production starts. Briefs arrive incomplete. Scope expands without agreement. Deadlines are assumed. The creative begins work anyway because asking for clarification takes time and risks the relationship.</p>
+    <p>This project argues that AI's most valuable role in creative work is not making things faster. It is ensuring the conditions for good work exist before anything gets made. stet. is a working product built to test that claim.</p>
+    <p>AI drafts. The human decides. That is not a limitation. It is the design.</p>
+  </div>
+</section>
+
+<!-- ============== SECTION 1 ============== -->
+<section class="chapter">
+  <div class="inner">
+    <div class="ghost-num">01</div>
+    <div class="chapter-eyebrow"><span class="num">§ 01</span>The Problem</div>
+    <h2 class="chapter-title">The problem is not creative execution<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p>Creative projects rarely fail because the designer cannot design or the copywriter cannot write. They fail because the conditions <em>around</em> the work are weak.</p>
+      <p>A client asks for "a quick social campaign" without defining the audience, the budget, the channels, or what success looks like. A stakeholder asks for "one extra version" as if it costs nothing. A brief arrives as a forwarded email chain with the actual requirement buried halfway down. The creative knows more information is needed. The clarifying email gets delayed, softened, or skipped entirely.</p>
+      <p>That is where productivity leaks. Not at the point of making. At the point of definition.</p>
+      <p>Faster production does not fix an incomplete brief. Faster copywriting does not resolve who approves the message. Faster layout does not prevent scope from expanding after the estimate is agreed. The tools get faster. The work stays messy.</p>
+      <p>A 2025 field experiment tracked over 7,000 knowledge workers across 66 firms. Workers given access to generative AI spent less time on email, but the researchers found no broader shift in the quantity or composition of their actual tasks. Local time savings did not become systemic productivity gains. That pattern fits the productivity J-curve: general-purpose technologies like AI require complementary investment in processes, structures, and organisational change before productivity gains materialise. In creative work, that complementary investment is the operational layer. The structures and processes that determine whether the work is set up to succeed before anyone starts making anything.</p>
+      <p>Most of the creative industry is still using AI experimentally. Individual experimentation with scattered tools. No shared standards. No governance. No workflow integration. Higher maturity comes when AI is embedded into how work actually gets done, not bolted onto existing processes. A solo creative using ChatGPT to draft an email is not the same as having a system that detects a weak brief, records what is missing, drafts the response, waits for approval, and continues the loop when the client replies. The difference is not the model. It is the workflow.</p>
+      <p>Creative briefs are structurally incomplete communication artifacts. They contain missing constraints, implied assumptions, contradictory stakeholder goals, linguistic vagueness, and asymmetry between what the client intends and what the designer interprets. This is not a failure of any individual client. It is a property of how creative work is commissioned. The brief is an attempt to describe a desired outcome before the process of creating it has begun. It will always be incomplete. The question is whether the incompleteness is identified and addressed before work starts or discovered after work is delivered.</p>
     </div>
 
-    <!-- Preview: a clarifying email draft, ready for human review -->
-    <div class="preview-card" aria-label="Example clarifying email draft">
-      <div class="preview-head">
-        <div class="left">
-          <div class="avatar">S</div>
-          <div class="meta">
-            <div>Drafted reply · re: Spring campaign</div>
-            <div class="sub">From studio@stet.design. Awaiting your approval</div>
-          </div>
+    <div class="pullquote">
+      "The tools get faster. The work stays messy."
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 2 ============== -->
+<section class="chapter warm">
+  <div class="inner">
+    <div class="ghost-num">02</div>
+    <div class="chapter-eyebrow"><span class="num">§ 02</span>The Subject</div>
+    <h2 class="chapter-title">The solo creative<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p>stet. is built for solo creatives. Freelance designers, copywriters, strategists, independent practitioners who work alone but present as a studio.</p>
+      <p>AI has expanded the capability of this person significantly. They can concept faster, draft faster, mock up faster, and take on more clients than before. But AI has not given them the thing a studio actually provides. <em>Operational protection.</em></p>
+      <p>A studio is not just creative labour. It is roles around the work. An account manager reads the brief before anything starts. A project manager tracks what was agreed. A producer checks feasibility. A commercial lead protects scope. There is a paper trail when things go sideways.</p>
+      <p>The solo creative has none of that. They are every role at once. The designer, the account manager, the project manager, the bookkeeper, and the new business lead. They switch between those roles constantly, often within a single email. One minute they are reviewing a layout. The next they are chasing a late payment. The next they are reading a new brief from a client who wants a response by morning.</p>
+      <p>The problem is not just operational. It is emotional and commercial. The difficult part is not always knowing what to ask. Experienced creatives usually know the missing questions immediately. What exactly is being delivered. What is the budget. When is it due. Who signs it off. Is this new request inside the original agreement.</p>
+      <p>The harder part is asking without damaging the relationship.</p>
+      <p>This is invisible labour. It does not appear on any invoice. It is not tracked in any project management tool. But a significant proportion of freelance survival depends on it. Boundary management. Negotiation. Translation between what the client said and what they meant. Expectation control. Conflict avoidance. These are the skills that keep a solo practice running, and they are the skills that get squeezed out first when the creative is busy, tired, or worried about losing the client.</p>
+    </div>
+
+    <div class="body-col">
+      <p>A client sends a brief with no budget mentioned. The creative knows the first question should be about money. But asking about money feels like pushing back. It feels like slowing things down. It feels like being difficult. So they skip the question and start the work. Three weeks later the client sees the invoice and says it is more than they expected. The conversation that should have happened at the start now happens at the end, when the work is done and the relationship is under pressure.</p>
+      <p>They absorb the ambiguity instead. They want to keep momentum. They want the client to like working with them. So the cost appears later as unpaid work, extra revisions, or a project that quietly grows beyond its original shape. The work that protects the creative is the first work that gets dropped.</p>
+      <p><strong>stet.</strong> is built for that moment. Not the moment of making. The moment before making, when the conditions for good work are either established or quietly abandoned.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 3 — MANIFESTO ============== -->
+<section class="manifesto">
+  <div class="inner">
+    <div class="ghost-num">03</div>
+    <div class="chapter-eyebrow"><span class="num">§ 03</span>The Claim</div>
+    <div class="manifesto-quote">
+      AI's most valuable role in creative work is not making the output. It is protecting the conditions that allow good output to happen<span class="red-mark">.</span>
+    </div>
+    <div class="manifesto-coda">
+      <p>The right intervention is not another generative tool. It is an operational layer. stet. sits between the client's request and the creative's response. It reads the brief, identifies what is missing, and drafts the email the creative should send before work begins. When a client later asks for something beyond the agreed scope, it drafts a response that acknowledges the request, restates what was agreed, and offers the new work as a separate conversation.</p>
+      <p>AI should not replace the account manager. It should make the account manager possible for someone who could never afford one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BRAND SPREAD ============== -->
+<section class="brand">
+  <div class="inner">
+    <div class="brand-header">
+      <h2>The mark<span class="red-mark">.</span></h2>
+      <div class="meta">Identity</div>
+    </div>
+
+    <div class="brand-mark-display">
+      <img src="assets/stet-dark.svg" alt="stet. wordmark">
+    </div>
+
+    <div class="brand-cols">
+      <div class="brand-col">
+        <h3>Name</h3>
+        <div class="body">
+          <p>stet. is a proofreader's mark. Used in editing to mean <em>leave it as written</em>. It is an instruction to ignore a proposed correction and keep the original text.</p>
+          <p>In the context of creative work, it means something more specific. The brief should be right before the work begins. Not corrected halfway through. Not renegotiated at the end. Right from the start.</p>
+          <p>The name is a quiet argument about where quality actually originates.</p>
         </div>
-        <div class="tag">Draft · not sent</div>
       </div>
 
-      <div class="email-draft">
-        <p class="greeting">Hi Sarah,</p>
-        <p style="margin:0 0 10px;">Thanks for sending this over. A few quick things before I get started:</p>
-        <div class="q"><span class="qnum">01</span><span>What's the working budget range for this campaign?</span></div>
-        <div class="q"><span class="qnum">02</span><span>Which channels are in scope: paid social, organic, or both?</span></div>
-        <div class="q"><span class="qnum">03</span><span>Who's the final approver, and when do you need first-round work?</span></div>
-        <p class="sign-off">Once I have these I can come back with a focused approach.</p>
+      <div class="brand-col">
+        <h3>Mark</h3>
+        <div class="body">
+          <p>The wordmark is set in lowercase. No capitals, no decoration, one piece of punctuation.</p>
+          <p>The decision to go lowercase is deliberate. stet. does not position itself as a management tool or an enterprise system. It is a working companion for a solo practitioner.</p>
+          <p>The weight and spacing of the letterforms are calibrated to hold up at small sizes, where most of the work actually happens. A browser tab. A mobile notification. The top of an email thread.</p>
+        </div>
       </div>
 
-      <div class="preview-actions">
-        <button class="btn btn-red">Approve &amp; send</button>
-        <button class="btn ghost">Edit draft</button>
-        <span class="meta">Draft v1 · 28s ago</span>
+      <div class="brand-col">
+        <h3>The Red Dot</h3>
+        <div class="body">
+          <p>The full stop is the mark. In proofreading, stet. is written with a dot beneath the text. The instruction and the emphasis in a single gesture.</p>
+          <p>The red dot in the stet. identity performs the same role. It is not decoration. It ties the wordmark back to its typographic origin and makes the punctuation legible as a deliberate choice rather than a grammatical habit.</p>
+          <p>Red because it is the colour of a proofreader's pen. Because it signals attention. Because it says: <em>this matters, before anything else starts.</em></p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== THESIS LINK ===================== -->
-<section class="thesis-link">
-  <div class="thesis-link-inner">
-    <h2 style="font-weight: 400;">
-      AI's most valuable role in creative work is not making the output. It is protecting the conditions that allow good output to happen<span class="red-mark" style="font-weight: 400;">.</span>
-    </h2>
-    <div class="right">
-      <p>
-        The full argument. Why brief integrity matters, why solo creatives are the clearest case, and what stet. becomes. It is set out as the final project for LABASAD.
-      </p>
-      <a href="about.html" class="btn btn-ghost-dark">
-        Read more →
-      </a>
+<!-- ============== SECTION 4 ============== -->
+<section class="chapter">
+  <div class="inner">
+    <div class="ghost-num">04</div>
+    <div class="chapter-eyebrow"><span class="num">§ 04</span>The Product</div>
+    <h2 class="chapter-title">A deployed web application<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p>The platform is called <strong>stet.</strong> The application is <strong>The Studio</strong>. It is live at <a href="https://stet.design">stet.design</a>.</p>
+      <p>The entry behaviour is forwarding an email. That matters. The target user is already overloaded. They are not going to adopt a new project management tool, fill in a form for every job, or rebuild their workflow around a new system. A product designed to create operational discipline cannot begin by demanding more discipline than the user currently has. stet. intercepts existing behaviour and improves it. The most common action a solo creative takes when they receive a brief is to read it and start thinking about the work. stet. intercepts that moment. Before the creative starts thinking about the work, the system thinks about whether the brief is ready for work to start.</p>
+      <p>stet. is not project management software. Project management tracks what is happening during a job. stet. intervenes before the job begins. It does not manage tasks, assign resources, or track time. It protects the conditions under which tasks can be defined properly. The difference is structural. A project management tool assumes the brief is ready and the scope is agreed. stet. exists because they usually are not.</p>
+      <p>A brief arrives at <span class="mono-inline">studio@stet.design</span>. The system reads it, scores it for completeness, and flags what is missing. A clarifying email is drafted. The user reviews it, edits it if needed, approves it, and sends it. The client replies. The loop continues until the conditions for starting work are clear. The user can also create jobs manually from the dashboard for briefs that arrive by phone, in person, or through channels other than email.</p>
+      <p>The creative can also generate a client brief link from Settings. The link opens a conversational interview that guides the client through the questions a good account manager would ask in a kick-off meeting. No login required. No access to internal data. The client sees only the interview and a confirmation screen. On submission, the job is created in the creative's account automatically, analysed by Claude, and appears in the dashboard like any other job. The brief arrives pre-structured rather than incomplete.</p>
+      <p>Jobs are categorised on intake into three types: standalone projects (<span class="mono-inline">J</span>), ongoing programmes (<span class="mono-inline">P</span>), and recurring outputs (<span class="mono-inline">R</span>). Each type triggers different agent behaviour from the start. A one-off brand identity project and a monthly content retainer require fundamentally different operational logic. The standalone project needs scope locked tight before work begins. The ongoing programme needs flexibility built in from the start. The recurring output needs rhythm and consistency. The job type prefix is set at intake and shapes how every subsequent agent responds.</p>
+      <p>The dashboard shows all active jobs in a single view. Each row displays the project name, client, status, brief completeness score, scope status, and last activity. Jobs move through nine statuses from new to closed. Closed jobs are muted and sorted to the bottom. Archived jobs are removed from the dashboard entirely and accessible through a separate view. The dashboard is the operational picture. At a glance, the creative can see which jobs need attention, which are waiting on clients, and which are clear to proceed.</p>
+      <p>When a job is open, the detail view is divided into nine sections accessible from a left navigation panel.</p>
+    </div>
+
+    <div class="sections-list">
+      <div class="sec-row">
+        <h3>Brief</h3>
+        <p>Shows the completeness score out of 100, a list of confirmed fields against identified gaps, the raw email body as received, and a set of clarifying questions inferred by Claude from the brief content. Each question has an individual <em>Ask</em> button. The questions are not drawn from a fixed checklist. A concept brief without deliverables defined will generate different questions from a production brief without file specifications. The system reads the brief it received and responds to what is missing in that specific brief.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Response</h3>
+        <p>Holds the drafted clarifying email addressed to the client. It shows which gaps the email addresses, the source context it drew from, and a word count. The user can approve and send, or edit the draft first. Nothing sends without approval. The email is designed to make the creative look professional rather than difficult. It opens with acknowledgement, asks direct questions, and positions clarification as alignment rather than complaint.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Briefing</h3>
+        <p>Contains the auto-generated internal brief. This is produced automatically when completeness crosses 80%. It includes the client contact, project overview, deliverables, key message, timeline, budget, estimated hours, approval process, success metric, and risk flags. This is the document a studio account manager would write before handing a job to the creative team. stet. generates it from the intake conversation alone. No form was filled in. No template was completed. The creative receives the equivalent of an account manager's handover document, built entirely from the email exchange that has already taken place.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Authority</h3>
+        <p>Maps every approval decision point in the project. Who owns each decision, when it needs to happen, and where approvers are unspecified. Missing authority is one of the most common causes of stalled projects. A creative finishes work and sends it for approval, only to discover that the person they sent it to cannot actually sign it off. The real approver is someone they have never spoken to. The Authority section makes this visible from the start, before the work begins rather than after it is done.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Resources</h3>
+        <p>Gives a complexity rating, estimated hours, a list of required skills as tags, a recommended resource profile, and a capacity warning where relevant. For a solo creative, this section answers a practical question: can I actually do this job in the time available with the skills I have. If the answer is no, that is better to know before accepting the brief than after missing the deadline.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Risks</h3>
+        <p>Surfaces inferred risk flags from the brief. These are not generic warnings. They are specific to the project content. A brief that mentions a tight timeline but no budget will flag differently from one with a clear budget but no defined deliverables. A brief where one person approves everything will flag a single point of failure. A brief where the success metric depends on an external measurement method will flag the dependency. Each flag is a specific observation about this brief, not a template response.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Check-ins</h3>
+        <p>Generates a recommended milestone check-in schedule derived from the project timeline. This gives the creative a structure for client communication across the life of the project, not just at intake. Regular check-ins reduce the risk of a project going silent for weeks and then surfacing problems at the deadline. The schedule is generated from the project dates and deliverables, not from a default template.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Updates</h3>
+        <p>The live feed. Scope flags and revision flags raised by inbound client emails appear here, each with a Gatekeeper assessment including scope status, time implication, recommended action, and a full rationale. A draft reply is generated for each flag with approve and send controls. The user can also add studio notes as free text and attach files. Images and PDFs can be uploaded and are passed to Claude as part of the brief analysis. Filters allow switching between All, Scope, and Revision views.</p>
+      </div>
+      <div class="sec-row">
+        <h3>Details</h3>
+        <p>Holds the core job data. Deadline, budget, key message, and success metric. These are the four fields that anchor the project. If any of them change, the change should be deliberate and recorded, not absorbed silently.</p>
+      </div>
+    </div>
+
+    <div class="body-col">
+      <p><em>Every section is produced by reasoning over the brief and the subsequent conversation. None of it requires the user to fill in a form. The system builds the operational picture from the information that already exists.</em></p>
+    </div>
+
+    <div class="figure">
+      <div class="frame"><img src="assets/fig-01.png" alt="Dashboard with job list, status indicators, brief scores, and scope column" loading="lazy"></div>
+      <div class="caption"><span class="fig-num">Fig. 01</span>Dashboard · Job list</div>
+    </div>
+
+    <div class="figure">
+      <div class="frame"><img src="assets/fig-02.png" alt="Job detail. Brief tab showing completeness score, confirmed fields, gaps, and clarifying questions" loading="lazy"></div>
+      <div class="caption"><span class="fig-num">Fig. 02</span>Job detail · Brief tab</div>
+    </div>
+
+    <div class="figure">
+      <div class="frame"><img src="assets/fig-03.png" alt="Response tab. Drafted clarifying email with approve and send controls" loading="lazy"></div>
+      <div class="caption"><span class="fig-num">Fig. 03</span>Response · Drafted clarifying email</div>
+    </div>
+
+    <div class="figure">
+      <div class="frame"><img src="assets/fig-04.png" alt="Briefing tab. Auto-generated internal brief produced when completeness crosses 80%" loading="lazy"></div>
+      <div class="caption"><span class="fig-num">Fig. 04</span>Briefing · Auto-generated at 80%</div>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="colophon" id="contact">
+<!-- ============== SECTION 5 — AGENTS ============== -->
+<section class="chapter warm">
+  <div class="inner">
+    <div class="ghost-num">05</div>
+    <div class="chapter-eyebrow"><span class="num">§ 05</span>The System</div>
+    <h2 class="chapter-title">Four agents<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p>The system is decomposed into four single-purpose agents. Each has a narrow job and a clear boundary. Each leaves a trace the user can read and audit. The agents do not act on each other's outputs autonomously. Every result is surfaced to the user before the next step begins. There is no chain of automated decisions running in the background. The user can see what each agent produced, understand why, and decide what to do with it.</p>
+      <p>A rules-based system could check whether a brief mentions a budget. It could not read a forwarded email chain, recognise that the brief is about a brand identity project, infer that file format specifications and logo concept rounds are missing for this type of work, and draft a clarifying email that sounds like a colleague rather than a form. The agents require a reasoning layer because creative briefs are unstructured, varied, and context-dependent. Every brief is different. The system has to read each one on its own terms. A brand identity brief and a social media campaign brief will arrive in the same inbox, in the same format, and require entirely different sets of questions. A checklist cannot do that. A reasoning model can.</p>
+    </div>
+
+    <div class="agent-list">
+      <article class="agent-entry">
+        <div class="meta-col">
+          <div class="num">Agent 01 / 04</div>
+          <h3>The Interrogator</h3>
+        </div>
+        <div class="body-text">
+          <p>Analyses the incoming brief. Checks for eight completeness criteria: deliverables, deadline, budget, audience, key message, success metric, context, and constraints. Returns a score out of 100 and a specific list of gaps. A brief without a deadline, budget, or defined deliverables scores low. A brief that covers most criteria but omits one or two will score high but still surface those specific gaps.</p>
+          <p>The score is not there to punish the client. It makes ambiguity visible. Instead of a vague feeling that the brief is thin, the system names exactly what is missing. The Interrogator also infers clarifying questions directly from the brief content. Each question is available to send individually from the job detail page. The questions are shaped by what was sent. A brand identity brief and a media campaign brief will generate entirely different sets of questions, because the gaps in each are different.</p>
+        </div>
+      </article>
+
+      <article class="agent-entry">
+        <div class="meta-col">
+          <div class="num">Agent 02 / 04</div>
+          <h3>The Brief Clarifier</h3>
+        </div>
+        <div class="body-text">
+          <p>Turns the missing information into a professional email. The value is not just identifying that the budget is missing. It is drafting the email that asks for it in a tone the user can actually send.</p>
+          <p>The Brief Clarifier asks direct questions without sounding accusatory. It preserves warmth. It positions clarification as helpful alignment rather than complaint. It acknowledges the strength of the brief before raising what is missing. It closes with a constructive next step rather than a list of demands. The operational problem is also a social problem. The solo creative does not just need a checklist. They need help with the relationship-sensitive language that makes professional discipline socially acceptable. <em>The product reduces the emotional labour of asking for what the work requires.</em></p>
+          <p>Every email the Brief Clarifier produces is editable. The user can change a word, rewrite a sentence, soften the tone, or strengthen it. The draft is a starting point, not a finished document. The system removes the blank page. The user owns the final version.</p>
+        </div>
+      </article>
+
+      <article class="agent-entry">
+        <div class="meta-col">
+          <div class="num">Agent 03 / 04</div>
+          <h3>The Referee</h3>
+        </div>
+        <div class="body-text">
+          <p>Activates once a job reaches 80% completeness. It generates a full internal briefing document: client contact, project overview, deliverables, key message, timeline, budget, estimated hours, approval process, success metric, and risk flags.</p>
+          <p>This is the document that would normally be written by an account manager before handing a job to a creative. In a studio, this document is the bridge between the client conversation and the production process. It translates what was agreed into what needs to be done. stet. generates it from the conversation that has already taken place. No additional input is needed from the user. The briefing assembles itself from the confirmed information, and the creative receives it as a complete handover document the moment the brief is ready.</p>
+        </div>
+      </article>
+
+      <article class="agent-entry">
+        <div class="meta-col">
+          <div class="num">Agent 04 / 04</div>
+          <h3>The Gatekeeper</h3>
+        </div>
+        <div class="body-text">
+          <p>Monitors inbound emails after the job has started. When a client requests work beyond the original agreement, the Gatekeeper assesses the request and raises a scope flag. Each flag includes a scope status, time implication, recommended action, full rationale, and a draft reply. The user can accept the scope change, reject it, or flag it for discussion. Once a decision is made, it is stamped permanently against the job. The decision cannot be undone or edited. It becomes part of the project record.</p>
+          <p>Scope expansion rarely arrives as a formal change order. It usually arrives casually. "Could we also get a version for LinkedIn?" or "Can you just add another page?" Each request sounds small. Together they damage margin, time, and energy. A creative who absorbs three small scope additions across a project may end up doing fifty percent more work for the same fee. <em>The Gatekeeper makes scope control structural rather than a matter of individual confidence on a given day.</em> The creative does not have to decide alone whether this request is in scope. The system provides the assessment. The creative provides the judgment.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="figure">
+      <div class="frame"><img src="assets/fig-05.png" alt="Updates section showing scope flag with Gatekeeper assessment, full rationale, and draft reply with approve and reject controls" loading="lazy"></div>
+      <div class="caption"><span class="fig-num">Fig. 05</span>Updates · Gatekeeper scope flag</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 6 ============== -->
+<section class="chapter">
+  <div class="inner">
+    <div class="ghost-num">06</div>
+    <div class="chapter-eyebrow"><span class="num">§ 06</span>The Principle</div>
+    <h2 class="chapter-title">Human in the loop<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p>stet. never sends a client email without approval.</p>
+      <p>Client communication is sensitive. Tone, timing, relationship history, and commercial context all matter. A solo creative would not trust an automated system that speaks directly to their clients without review. Nor should they. A misread tone can damage a relationship. A question asked at the wrong moment can feel like an accusation. The creative knows things about the client that no system can infer from an email thread. Whether they are under pressure. Whether the project has internal politics. Whether this is someone who values directness or someone who needs careful framing.</p>
+      <p>AI drafts. The human decides.</p>
+      <p>There is a moment before the clarifying email sends. The creative reads the draft and decides whether it fits this client, this relationship, right now. Whether the tone is right. Whether the timing is appropriate. Whether this is the conversation to have today or next week. Whether one of the questions should be removed because the creative already knows the answer from a previous project. That is the irreplaceable moment. The system cannot make that call. Only the person who knows the client, the history, and the stakes can make that call.</p>
+      <p>The system does not block the work either. If a client cannot or will not answer every question, that gap stays visible on the job. The creative can start. But they start knowing what is unresolved, and the record is there when it matters. The system does not demand perfection. It demands visibility.</p>
+      <p>stet. does not formalise the creative work. It formalises the agreement about what the creative work is. Those are different things. The brief should be clear. The response to the brief can be as exploratory, ambitious, and open as the creative wants. Operational ambiguity is costly. Creative ambiguity is productive. The system distinguishes between the two. It resolves the first and leaves the second entirely to the creative.</p>
+      <p>stet. handles the blank page. It removes the friction of starting the difficult email. But the human handles judgment. <em>The system does not remove responsibility from the creative. It gives them better support in carrying it.</em></p>
+    </div>
+
+    <div class="pullquote">
+      "AI drafts. The human decides."
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 7 ============== -->
+<section class="chapter warm">
+  <div class="inner">
+    <div class="ghost-num">07</div>
+    <div class="chapter-eyebrow"><span class="num">§ 07</span>The Evidence</div>
+    <h2 class="chapter-title">Evidence from the build<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p><em>The screenshots throughout this document are not mockups. They are taken from a live project processed through The Studio.</em></p>
+      <p>A brief arrived from a client requesting a full brand refresh campaign for Volta Coffee. The brief was detailed but incomplete. It named deliverables, a deadline, a budget, a target audience, and a key message. It did not specify file formats, the number of logo concept rounds, how many social media templates per platform, whether existing brand assets should be retained or replaced, competitor references, photography style preferences, or a milestone payment schedule.</p>
+      <p>The <strong>Interrogator</strong> scored the brief at 85 out of 100. Twelve of fourteen fields confirmed. Seven gaps identified. Each gap was named specifically and listed with an individual <em>Ask</em> button so the creative could choose which to raise and which to leave. The score reflected the brief accurately. It was a strong brief with specific blind spots. The system recognised that and responded proportionally. It did not treat a detailed brief the same as a vague one.</p>
+      <p>The <strong>Brief Clarifier</strong> drafted a clarifying email. It addressed all seven gaps in a single message. 135 words, addressed to the client by name. The tone was professional and warm. It opened by acknowledging the strength of the brief and the positioning before asking for what was missing. The seven gaps were woven into a natural paragraph, not presented as a numbered list. The email read as a colleague checking alignment, not as a system generating questions. It sat in the Response tab, waiting for approval. Nothing sent until the user reviewed it and pressed Approve.</p>
+      <p>When completeness crossed 80%, the <strong>Referee</strong> generated a full internal briefing document. Client contact. Project overview: comprehensive brand refresh targeting urban professionals aged 25 to 40 in Dublin, focused on ethical sourcing and premium positioning. Four deliverables listed individually: new logo lockup, brand guidelines document at 40 pages, social media templates for Instagram, LinkedIn, and TikTok, and a hero website homepage image. Key message: Volta Coffee is ethically sourced, locally roasted, and worth paying more for. Timeline with a June 15 deadline. Budget of €12,000. Estimated hours of 80 to 120. An approval process noting Mark Nally as sole approver with no backup, flagged as a risk. Recommended check-in milestones at four points across the project. Success metric: 20% increase in brand recognition in the Dublin market within six months of launch. Four risk flags.</p>
+      <p>This is the document an account manager would normally write before handing a job to the creative team. The system produced it from the intake conversation alone. No form was filled in. No template was completed. Every field was extracted from the email exchange.</p>
+      <p>After the job started, the client requested additional deliverables not in the original brief. Pull-up banners and a welcome mat for the front door. Physical branded materials that were not part of the agreed digital brand refresh. The <strong>Gatekeeper</strong> raised a scope flag. It assessed the request as out of scope, estimated an additional three to five days for design, artwork preparation, and supplier coordination, and recommended initiating a scope extension discussion. A draft reply was generated, explaining that the physical materials would be additional to the agreed digital deliverables and offering to prepare a brief extension proposal covering design, specifications, and costing. The user could accept the scope change, reject it, or flag it for discussion.</p>
+      <p>A second scope flag followed. The client requested deliverables for the Dublin Coffee Festival: banner, promo video, tote bag design, and menu design. The Gatekeeper assessed this as four new deliverables across new work categories, estimated eight to twelve additional days, and drafted a reply noting the exhibition materials as new work beyond the brand refresh agreement. It referenced the original June 15 deadline and noted that the June 28 exhibition date created a scheduling conflict that would need to be discussed.</p>
+      <p>Without the Gatekeeper, these two requests would likely have been absorbed. The creative would have nodded, started the extra work, and felt the cost in hours and margin weeks later. The system made the scope boundary visible at the moment it was crossed. The decision to accept or reject was still the creative's. But the decision was informed, recorded, and explicit.</p>
+      <p>The <strong>Risks</strong> tab surfaced three flags from the brief itself, before any scope issues arose. The approval process involved two stakeholders despite one having final say, creating ambiguity about who needs to see what and when. The scope of deliverables was broad for the stated budget, which could lead to scope negotiation later. The success metric depended on brand recognition measurement in the Dublin market, but the method of measurement had not been specified. Each flag was a specific observation drawn from this brief. None of them came from a generic risk template.</p>
+      <p>This is one project. One brief. One complete pass through the system. The intake pipeline read an unstructured email, scored it, identified what was missing, drafted a clarifying response, generated an internal briefing document, and then monitored the ongoing conversation for scope and revision signals. Each step left a visible trace. Each decision point waited for the human.</p>
+      <p><em>The most useful evidence is not that the system works. It is that every section of the job detail page was populated by reasoning over the brief, and the output was specific enough to act on.</em></p>
+    </div>
+
+    <div class="figure">
+      <div class="frame"><img src="assets/fig-06.png" alt="Risks tab. Inferred risk flags surfaced from the brief: approval complexity, scope vs budget, unspecified measurement method" loading="lazy"></div>
+      <div class="caption"><span class="fig-num">Fig. 06</span>Risks · Inferred risk flags from the brief</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 8 ============== -->
+<section class="chapter">
+  <div class="inner">
+    <div class="ghost-num">08</div>
+    <div class="chapter-eyebrow"><span class="num">§ 08</span>The Platform</div>
+    <h2 class="chapter-title">The Studio<span class="red-mark">.</span></h2>
+    <div class="body-col">
+      <p>The intake pipeline is the first of three tools inside The Studio.</p>
+      <p><strong>Brief Builder</strong> is live inside The Studio. The creative generates a unique link from the Settings page and sends it to the client. The client opens a conversational interview that walks them through what the project needs: deliverables, timeline, budget, audience, success criteria. No login. No access to the creative's dashboard or job data. The client sees only the interview and a confirmation screen. On submission, the brief is created as a job in the creative's account, scored and analysed automatically. The brief arrives already structured. The completeness score is higher from the start. The difficult conversation is replaced by a guided process that feels like a professional kick-off meeting rather than a form.</p>
+    </div>
+
+    <div class="figure-row">
+      <div class="figure">
+        <div class="frame"><img src="assets/fig-07.png" alt="Brief Builder. Conversational interview asking the client about project name, deliverables, and goals" loading="lazy" /></div>
+        <div class="caption"><span class="fig-num">Fig. 07</span>Brief Builder · Conversational interview</div>
+      </div>
+
+      <div class="figure">
+        <div class="frame"><img src="assets/fig-08.png" alt="Brief Builder. Continued interview covering timing, audience reaction, visual references, and technical specifications" loading="lazy" /></div>
+        <div class="caption"><span class="fig-num">Fig. 08</span>Brief Builder · Context and references</div>
+      </div>
+
+      <div class="figure">
+        <div class="frame"><img src="assets/fig-09.png" alt="Brief Builder. Structured brief recap and Submit brief action" loading="lazy" /></div>
+        <div class="caption"><span class="fig-num">Fig. 09</span>Brief Builder · Structured recap before submission</div>
+      </div>
+    </div>
+
+    <div class="body-col">
+      <p><strong>Prompt Builder</strong> helps creatives work more effectively with AI inside the job itself. Once the brief is solid and the scope is agreed, the creative moves into production. Prompt Builder turns confirmed project details into working prompts. It takes the structured information from the intake process and translates it into inputs the creative can use with generative tools. The brief becomes the foundation for the prompt, not something the creative has to reinterpret from scratch. The deliverables, audience, key message, tone, and constraints are already defined. Prompt Builder uses them.</p>
+      <p>The three tools address different points in the same workflow. The intake system protects the space between a client's request and the creative's response. Brief Builder protects the space before the request is even made. Prompt Builder protects the space between the brief and the work. Together they cover the full lifecycle of a creative job from intent to execution.</p>
+      <p>Each operates on the same principle. <em>AI reasons and drafts. The human decides and acts.</em></p>
+      <p>The structural problem stet. addresses exists at every scale. Agencies, in-house teams, and brand departments all deal with unclear briefs, informal scope expansion, and revision loops caused by poor alignment. Larger organisations absorb the cost through headcount. They have account managers, project managers, producers, and layers of process. The inefficiency is still there but it is distributed across the system and hidden inside salaries. A revision loop that costs an agency three days of junior designer time is an operational cost on a spreadsheet. The same revision loop costs a solo creative three days of income and a weekend.</p>
+      <p>Solo creatives cannot absorb that cost. They are not a niche case. They are the organisational problem compressed into one person. Every failure mode visible. Every cost personal. Every missed email felt directly in margin.</p>
+      <p>If stet. can support a solo creative at the moment where intent becomes work, the same logic applies upward into teams and organisations. The form would change. The logic remains.</p>
+      <p><em>Better creative productivity starts before production.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="colophon">
   <div class="col-inner">
-    <a href="/" class="brand" aria-label="stet.">
+    <a href="index.html" class="brand" aria-label="stet.">
       <img src="assets/stet-light.svg" alt="stet.">
     </a>
     <div class="right">
@@ -831,6 +1179,20 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function() {
+    var p = document.getElementById('progress');
+    function update() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      p.style.width = pct + '%';
+    }
+    document.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
 
 
 
